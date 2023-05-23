@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('exercises', function (Blueprint $table) {
-            $table->id();
+            $table->uuid();
+            $table->string('Name');
+            $table->string('Description');
+            $table->string('equipment');
+            $table->string('target');
+            $table->string('bodyPart');
+            $table->string('Tracking');
+            $table->string('ImageSrc')->nullable();
             $table->timestamps();
         });
     }
