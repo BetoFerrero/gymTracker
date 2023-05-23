@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class exercise extends Model
 {
@@ -25,4 +26,14 @@ protected $fillable = [
     'ImageSrc'
 ];
 protected $primaryKey='uuid';
+
+/**
+ * Conseguir ROUTINES en los que se muestra el ejercicio
+ */
+public function record_exercise(): HasManyThrough
+{
+ return $this->hasManyThrough(routine::class,record_exercise::class);
+}
+
+
 }
