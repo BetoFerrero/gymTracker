@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('records', function (Blueprint $table) {
+        Schema::create('routines', function (Blueprint $table) {
             $table->uuid()->primary();
+            $table->string('name');
+            $table->string('description');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
-            $table->string('Comment');
-            $table->integer('Duration')->nullable();
-            $table->dateTime('Date');
-            
         });
     }
 
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('records');
+        Schema::dropIfExists('routines');
     }
 };

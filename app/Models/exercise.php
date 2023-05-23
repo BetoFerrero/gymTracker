@@ -24,4 +24,5 @@ protected $fillable = [
     'Tracking',
     'ImageSrc'
 ];
+protected $primaryKey='uuid';
 }
