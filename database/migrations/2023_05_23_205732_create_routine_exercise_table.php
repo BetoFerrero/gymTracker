@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('routine_exercise', function (Blueprint $table) {
             $table->uuid()->primary();
-            $table->foreignUuid('routine_uuid')->constrained('routines','uuid')->cascadeOnDelete();
-            $table->foreignUuid('exercise_uuid')->constrained('exercises','uuid')->cascadeOnDelete();
+            $table->foreignUuid('routine_id')->constrained('routines','id')->cascadeOnDelete();
+            $table->foreignUuid('exercise_id')->constrained('exercises','id')->cascadeOnDelete();
             $table->integer('Order');
             $table->Integer('sets')->default(4);
             $table->Integer('reps')->default(10);

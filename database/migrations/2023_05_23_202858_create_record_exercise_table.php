@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('record_exercise', function (Blueprint $table) {
             $table->timestamps();
             $table->uuid()->primary();
-            $table->foreignUuid('records_uuid')->constrained('records','uuid')->cascadeOnDelete();
-            $table->foreignUuid('exercise_uuid')->constrained('exercises','uuid')->cascadeOnDelete();
+            $table->foreignUuid('record_id')->constrained('records','id')->cascadeOnDelete();
+            $table->foreignUuid('exercise_id')->constrained('exercises','id')->cascadeOnDelete();
             $table->unsignedInteger('weight')->nullable();
             $table->unsignedInteger('reps')->nullable();
             $table->unsignedInteger('time')->nullable();
