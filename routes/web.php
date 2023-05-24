@@ -34,5 +34,14 @@ Route::middleware([
 ])->group(function () {
     Route::get('/exercises', function () {
         return view('exercise.index');
-    })->name('exercise');
+    })->name('exercises');
+});
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/routines', function () {
+        return view('routine.index');
+    })->name('routines');
 });
