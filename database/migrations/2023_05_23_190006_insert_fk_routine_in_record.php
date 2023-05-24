@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('Records', function (Blueprint $table) {
-            $table->foreignUuid('routine_uuid')->constrained('routines','uuid');
+            $table->foreignUuid('routine_id')->constrained();
         });
     }
 
@@ -22,8 +22,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('Records', function (Blueprint $table) {
-            if (schema::hasColumn('routine_uuid')){
-                $table->dropColumn('routine_uuid');   
+            if (schema::hasColumn('routine_id')){
+                $table->dropColumn('routine_id');   
             };
            
         });

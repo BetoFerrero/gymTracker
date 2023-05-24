@@ -14,5 +14,6 @@ class routine_exercise extends Pivot
         'Reps',
         'rir'
     ];
-    protected $primaryKey='uuid';
+    protected $primaryKey='id';
+    protected $keytype='string';
 }

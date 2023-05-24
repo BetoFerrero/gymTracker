@@ -14,5 +14,6 @@ class record_exercise extends Pivot
         'time',
         'rpe'
     ];
-    protected $primaryKey='uuid';
+    protected $primaryKey='id';
+    protected $keytype='string';
 }
