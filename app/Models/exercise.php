@@ -25,7 +25,8 @@ protected $fillable = [
     'Tracking',
     'ImageSrc'
 ];
-protected $primaryKey='uuid';
+protected $primaryKey='id';
+protected $keytype='string';
 
 /**
  * Conseguir ROUTINES en los que se muestra el ejercicio
