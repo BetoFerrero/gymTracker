@@ -14,5 +14,5 @@ class routine extends Model
         'description'
     ];
     protected $keytype='string';
-    protected $primaryKey = 'uuid';
+    protected $primaryKey = 'id';
 }
