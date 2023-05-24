@@ -14,5 +14,6 @@ class Record extends Model
         'Duration',
         'Date'
     ];
-    protected $primaryKey='uuid';
+    protected $primaryKey='id';
+    protected $keytype='string';
 }
