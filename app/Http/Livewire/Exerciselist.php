@@ -3,16 +3,17 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\models\exercise;
+use App\Models\Exercise;
 use Livewire\WithPagination;
 
 class Exerciselist extends Component
 {
+    use WithPagination;
+    
     public function render()
     {
-        
-        return view('livewire.exerciselist',[
-            'exercises' => exercise::paginate(10),
-        ]);
+        $exercises = Exercise::all();
+
+        return view('livewire.exerciselist',['exercises'=>$exercises,]);
     }
 }
