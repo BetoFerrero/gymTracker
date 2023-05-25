@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use App\Models\exercise;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ExerciseFactory extends Factory
 {
+    protected $model = exercise::class;
     /**
      * Define the model's default state.
      *
@@ -17,7 +18,13 @@ class ExerciseFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'Name' => $this->faker->word(),
+            'Description' => $this->faker->words(10,true),
+            'equipment' =>$this->faker->word,
+            'target' =>$this->faker->word,
+            'bodyPart' =>$this->faker->word,
+            'Tracking' =>$this->faker->word,
+            'imageSrc' =>$this->faker->word,
         ];
     }
 }
