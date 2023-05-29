@@ -16,7 +16,7 @@
                         <div class="flex items-center">Parte del cuerpo</div>
                     </th>
                     <th class="px-4 py-2">
-                        <div class="flex items-center">Descripción</div>
+                        <div class="flex items-center">Acción</div>
                     </th>
                 </tr>
             </thead>
@@ -24,16 +24,20 @@
                
                 @foreach ( $exercises as $exercise )
                     <tr>
-                        <td class="rounded border px-4 py-2"><img src="{{$exercise->ImageSrc}}" alt="{{$exercise->Name}}" class="object-cover h-48 w-48"></td>
+                        
+                        <td class="px-4 py-2 p" >
+                            <img src="{{$exercise->ImageSrc}}" alt="{{$exercise->Name}}" class="object-cover h-20 w-20" onerror="this.onerror = null;this.src='{{ URL::to('/') }}/img/noImage.jpg'"/>    
+                        </td>
                         <td>{{$exercise->Name}}</td>
                         <td>{{$exercise->bodyPart}}</td>
-                        <td>{{$exercise->Description}}</td>
+                        <td>Editar / Eliminar</td>
                     </tr>
+                    
                 @endforeach
             </tbody>
         </table>
     </div>
     <div class="mt-4">
-
+        {{$exercises->links()}}
     </div>
 </div>

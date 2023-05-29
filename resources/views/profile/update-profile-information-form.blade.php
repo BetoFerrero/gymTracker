@@ -44,7 +44,7 @@
 
                 @if ($this->user->profile_photo_path)
                     <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Eliminar foto') }}
+                        {{ __('🗑') }}
                     </x-secondary-button>
                 @endif
 

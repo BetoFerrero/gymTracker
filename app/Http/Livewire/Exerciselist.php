@@ -12,8 +12,10 @@ class Exerciselist extends Component
     
     public function render()
     {
-        $exercises = Exercise::all();
+        $exercises = Exercise::paginate(5);
 
         return view('livewire.exerciselist',['exercises'=>$exercises,]);
     }
+
+    
 }
