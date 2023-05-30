@@ -23,22 +23,6 @@ class Exerciselist extends Component
     }
 
 
-    public function sortOrder($columnName=""){
-        $caretOrder = "up";
-        if($this->sortOrder == 'asc'){
-             $this->sortOrder = 'desc';
-             $caretOrder = "down";
-        }else{
-             $this->sortOrder = 'asc';
-             $caretOrder = "up";
-        } 
-        $this->sortLink = '<i class="sorticon fa-solid fa-caret-'.$caretOrder.'"></i>';
-
-        $this->orderColumn = $columnName;
-
-   }
-
-
     public function checkImg($imgUrl,$failImgUrl){
         return image::checkimage($imgUrl,$failImgUrl);
     }
