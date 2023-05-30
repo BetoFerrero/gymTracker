@@ -36,6 +36,6 @@ public function record_exercise(): HasManyThrough
 {
  return $this->hasManyThrough(routine::class,record_exercise::class);
 }
-
+/** QUERIES */
 
 }

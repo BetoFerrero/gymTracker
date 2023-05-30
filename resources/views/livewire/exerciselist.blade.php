@@ -1,3 +1,4 @@
+
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
     <h1 class="mt-4 text-2xl font-medium text-gray-900">
         <div>Ejercicios</div>
@@ -26,7 +27,9 @@
                     <tr>
                         
                         <td class="px-4 py-2 p" >
-                            <img src="{{$exercise->ImageSrc}}" alt="{{$exercise->Name}}" class="object-cover h-20 w-20" onerror="this.onerror = null;this.src='{{ URL::to('/') }}/img/noImage.jpg'"/>    
+                        
+                            <img src=" {{$exercise->ImageSrc}} "  alt="{{$exercise->Name}}" class="object-cover h-20 w-20" onerror="this.onerror = null;this.src='https://via.placeholder.com/75x75?text=Ejercicio+sin+foto'" Alt="{{$exercise->Description}}"/>    
+
                         </td>
                         <td>{{$exercise->Name}}</td>
                         <td>{{$exercise->bodyPart}}</td>
