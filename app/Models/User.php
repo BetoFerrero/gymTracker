@@ -63,6 +63,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+    public function isAdmin(){
+        return $this->is_Admin; 
+    }
+
     /* === Relaciones === */
 
     public function routines(): HasMany
