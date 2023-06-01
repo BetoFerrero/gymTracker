@@ -46,3 +46,16 @@ Route::middleware([
         return view('routine.index');
     })->name('routines');
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/routines', function () {
+        return view('routine.index');
+    })->name('routines');
+});
+
+
+
