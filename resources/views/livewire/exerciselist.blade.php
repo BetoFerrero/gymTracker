@@ -56,7 +56,7 @@
                         
                         <td class="px-4 py-2 p" >
                         
-                            <img src=" {{$exercise->ImageSrc}} "  alt="{{$exercise->Name}}" class="object-cover h-20 w-20" onerror="this.onerror = null;this.src='https://via.placeholder.com/75x75?text=Ejercicio+sin+foto'" Alt="{{$exercise->Description}}"/>    
+                            <img src=" {{$exercise->ImageSrc}} "  alt="{{$exercise->Name}}" class="object-cover h-20 w-20" Alt="{{$exercise->Description}}"/>    
 
                         </td>
                         <td>{{$exercise->Name}}</td>
