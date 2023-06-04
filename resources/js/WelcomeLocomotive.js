@@ -1,3 +1,4 @@
+import LocomotiveScroll from "locomotive-scroll";
 console.clear();
 
 gsap.registerPlugin(ScrollTrigger);

@@ -9,17 +9,14 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.css" rel="stylesheet"/>
+        <!--<link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.1/dist/locomotive-scroll.min.css" rel="stylesheet"/>-->
         <!-- Styles -->
         @livewireStyles()
         @vite(['resources/css/app.css', 'resources/js/app.js','resources/css/Welcome.css' ])
 
 
-        <!-- Valores en cabecera -->
-        <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/ScrollTrigger.min.js" ></script>
-        <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js" ></script>
-        @vite(['resources/js/WelcomeLocomotive.js'])
+        
+        
     </head>
     <body class="antialiased">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
@@ -44,6 +41,12 @@
                 
             </div>
         </div>
-    </body>
-
+        <x-footer/>
+    <!-- Valores en cabecera -->
+    <!--<script src='https://cdn.tailwindcss.com'></script>-->
+    <script src='https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js?v=3.4.0.1'></script>
+    <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script><script  src="./script.js"></script>
+    @vite(['resources/js/WelcomeLocomotive.js'])
+</body>
 </html>

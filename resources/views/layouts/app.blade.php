@@ -42,7 +42,6 @@
 
         @stack('modals')
 
-        @livewireScripts
     </body>
-
+<x-footer/>
 </html>

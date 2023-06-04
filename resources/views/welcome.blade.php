@@ -1,7 +1,7 @@
 
 <x-web-layout>
     <div data-scroll-container class="smooth-scroll">
-        <section data-scroll-section style="background-image: url('{{ asset('images/plano_picado_gym.jpg')}}')" class=" bg-gray-700 bg-center bg-no-repeat bg-blend-multiply bg-cover max-h-screen-xl max-w-screen">
+        <section data-scroll-section style="background-image: url('{{ asset('images/plano_picado_gym.jpg')}}')" class=" bg-gray-700 bg-center bg-no-repeat bg-blend-multiply bg-cover min-h-screen max-w-screen">
           <div class="mx-auto px-4 py-24 text-center lg:py-56" x-data="{
                           text: '',
                           textArray : ['La revolución del fitness', 'Enfoca tus entrenamientos', 'Tu compañero definitivo'],
@@ -57,23 +57,28 @@
               <a href="#" class="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 text-center text-base font-medium text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
                 Comencemos 💪
               </a>
-              <a href="#" class="inline-flex items-center justify-center rounded-lg border border-white px-5 py-3 text-center text-base font-medium text-white hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-400"> Learn more </a>
+              <a href="#"  data-scroll-call="learnMore" class="inline-flex items-center justify-center rounded-lg border border-white px-5 py-3 text-center text-base font-medium text-white hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-400"> Aprender más ⬇</a>
             </div>
           </div>
         </section>
       
         <!--historial de entrenamientos-->
-        <section data-scroll-section id="learnMoreTarget" class="bg-white dark:bg-gray-900 max-w-screen max-h-screen data-scroll-section">
+        <section data-scroll-section class="bg-white dark:bg-gray-900 min-w-screen grid min-h-screen place-items-center data-scroll-section">
           <span class="line line-1"></span>
-          <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-            <div class="mr-auto place-self-center lg:col-span-7">
-              <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">Tus entrenamientos, tus récords 🏋🏽</h1>
-              <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">Conquista tus marcas con tu <b>historial de entrenamientos.</b></p>
+          <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0 lg:justify-start lg:space-around">
+            <div data-scroll data-scroll-speed="2"class="lg:mr-16 sm:text-center">
+              <h1 class="max-w-2xl text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                Tus entrenamientos, tus récords 🏋🏽</h1>
+              <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                Conquista tus marcas con tu <b>historial de entrenamientos.</b></p>
       
             </div>
-            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
-              <img src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png" alt="mockup">
-            </div>
+            <div class="relative lg:pr-20 sm:pr-0">
+
+              <img data-scroll data-scroll-speed="3" class="object-contain h-[55rem] my-7 " src="{{asset('images/presentation/phone-app.png')}}" alt="mockup">
+              <img data-scroll data-scroll-speed="7" class="hidden md:block absolute top-1/4 -left-28" src="https://placehold.co/200x250" alt="calendario">
+              <img data-scroll data-scroll-speed="6" class="hidden md:block absolute top-1/2 -left-96" src="https://placehold.co/300x200" alt="calendario">
+              <div>
           </div>
         </section>
       
@@ -81,16 +86,16 @@
           <div class="section-inner">
       
           <div class="flex space-x-1 bg-gray-600" data-scroll-in-section>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0213.gif"></img>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0233.gif"></img> 
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0805.gif"></img> 
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0010.gif"></img> 
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0864.gif"></img> 
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0009.gif"></img>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0650.gif"></img>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0023.gif"></img>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0155.gif"></img>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0286.gif"></img>
+            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0213.gif"/>
+            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0233.gif"/>
+            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0805.gif"/>
+            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0010.gif"/>
+            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0864.gif"/>
+            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0009.gif"/>
+            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0650.gif"/>
+            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0023.gif"/>
+            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0155.gif"/>
+            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0286.gif"/>
           </div>
       
             <!--Texto encima-->
