@@ -13,6 +13,16 @@ class routine extends Model
         'name',
         'description'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function exercises()
+    {
+        return $this->belongsToMany(Exercise::class, 'exercise_routine');
+    }
     protected $keytype='string';
     protected $primaryKey = 'id';
 }
