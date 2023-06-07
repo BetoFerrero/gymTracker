@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\ExerciseController;
+
 use Illuminate\Support\Facades\Route;
+use App\Models\Exercise;
+use App\Models\Routine;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +30,13 @@ Route::middleware([
     Route::view('/dashboard', 'dashboard')->name('dashboard');
     Route::view('/exercises', 'exercise.index')->name('exercises');
     Route::view('/routines', 'routine.index')->name('routines');
+
+
+    //SHOW
+    
+    Route::middleware('auth')->get('/exercises/{exercise}', function (Exercise $exercise) {
+        return view('exercise.show', compact('exercise'));
+    })->name('exercise.show');
     
 });
 

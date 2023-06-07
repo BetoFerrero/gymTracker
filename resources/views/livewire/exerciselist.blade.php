@@ -62,8 +62,10 @@
                             <img src=" {{ asset('images/exercises/' . $exercise->ImageSrc) }} "  alt="{{$exercise->Name}}" class="object-cover h-20 w-20"/>   
 
                         </td>
-                        <!-- <td><a href="poner las llaves route('exercise.show', ['exercise' => $exercise->id]) " class="text-blue-500 hover:underline">{{$exercise->Name}}</a></td>-->
-                        <td>{{$exercise->Name}}</td>
+                        <td>
+                        <a href="{{ route('exercise.show', ['exercise' => $exercise->id]) }}" class="text-blue-500 hover:underline">{{$exercise->Name}}</a>
+                    </td>
+                        <!--<td>{{$exercise->Name}}</td>-->
                         <td>{{$exercise->bodyPart}}</td>
                         
                         @if (auth()->user()->isAdmin())
