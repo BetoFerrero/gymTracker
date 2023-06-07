@@ -11,6 +11,8 @@ class ExerciseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
+     * 
+     * php artisan db:seed --class=ExerciseSeeder
      */
     public function run(): void
     {

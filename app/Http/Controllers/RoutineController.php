@@ -13,7 +13,7 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**

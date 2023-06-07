@@ -18,43 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 }); 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
 
+//Rutas de aplicación
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/exercises', function () {
-        return view('exercise.index');
-    })->name('exercises');
-});
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/routines', function () {
-        return view('routine.index');
-    })->name('routines');
-});
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/routines', function () {
-        return view('routine.index');
-    })->name('routines');
+    Route::view('/dashboard', 'dashboard')->name('dashboard');
+    Route::view('/exercises', 'exercise.index')->name('exercises');
+    Route::view('/routines', 'routine.index')->name('routines');
+    
 });
 
 
