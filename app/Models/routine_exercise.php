@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class routine_exercise extends Pivot
 {
     protected $fillable = [
-        'routine_uuid',
-        'exercise_uuid',
+        'routine_id',
+        'exercise_id',
         'Order',
         'Sets',
         'Reps',

@@ -3,6 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExerciseController;
+use App\Http\Controllers\RoutineController;
 use App\Models\Exercise;
 use App\Models\Routine;
 
@@ -19,7 +20,8 @@ use App\Models\Routine;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    //return view('welcome');
 }); 
 
 
@@ -35,9 +37,11 @@ Route::middleware([
     Route::view('/routines', 'routine.index')->name('routines');
 
 
-    //Resources
+    //Resources (No utilizo route::resource porque no necesito todas las rutas)
+    //Route::middleware('auth')->...
+    Route::get('/exercise/{exercise}', [ExerciseController::class, 'show'])->name('exercise.show');
+    Route::get('/routine/{routine}', [RoutineController::class, 'show'])->name('routine.show');
     
-    Route::middleware('auth')->get('/exercises/{exercise}', [ExerciseController::class, 'show'])->name('exercise.show');
 });
 
 

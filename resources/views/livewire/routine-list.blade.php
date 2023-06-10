@@ -1,18 +1,35 @@
-<div x-data="{ hasRoutines: {{ $routines->isNotEmpty() ? 'true' : 'false' }} }">
-    {{-- Close your eyes. Count to one. That is how long forever feels. --}}
-    <ul  x-show="hasRoutines">
+<div x-data="{ hasRoutines: @json($routines->isNotEmpty()), creatingRoutine: false, newRoutineName: '' }" x-init="
+    Livewire.on('refreshComponent', () => {
+        creatingRoutine = false;
+    })
+">
+    <ul x-show="hasRoutines">
         @foreach ($routines as $routine)
             <li class="bg-gray-100 p-4 mb-4 rounded shadow">
-                <h3 class="text-xl font-bold">{{ $routine->name }}</h3>
+                <a href="{{route('routine.show', ['routine' => $routine->id]) }}"><h3 class="text-xl font-bold">{{ $routine->name }}</h3></a>
                 <p class="text-gray-500">{{ $routine->description }}</p>
-                <!-- Otros datos de la rutina -->
+                <?php// TODO: ?>
             </li>
         @endforeach
     </ul>
 
-    <div class="mt-4">
-        {{ $routines->links() }}
+    <div x-show="!hasRoutines && !creatingRoutine">
+        <p>Crea una rutina para comenzar!</p>
+        <button @click="creatingRoutine = true">Crear rutina</button>
     </div>
 
-    <p x-show="!hasRoutines">Crea una rutina para comenzar!</p>
+    <div x-show="creatingRoutine">
+        <form wire:submit.prevent="createRoutine">
+        <input type="text" placeholder="Nombre de la rutina" wire:model="newRoutineName">
+        <button type="submit">Crear rutina</button>
+        </form>
+    </div>
+
+    <div x-show="hasRoutines && !creatingRoutine">
+        <button @click="creatingRoutine = true">Crear nueva rutina</button>
+    </div>
+
+    <div class="mt-4">
+        
+    </div>
 </div>

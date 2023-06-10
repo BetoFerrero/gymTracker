@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\routine;
+use App\Models\Routine;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreroutineRequest;
 use App\Http\Requests\UpdateroutineRequest;
 
@@ -35,9 +36,13 @@ class RoutineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(routine $routine)
+    public function show(Request $request,routine $routine)
     {
-        //
+        // Verificar si la rutina pertenece al usuario autenticado
+    if ($routine->user_id !== $request->user()->id || !$routine->public) {
+        abort(403, 'No tienes permiso para acceder a esta rutina.');
+    }
+    return view('routine.show', ['routine' => $routine]);
     }
 
     /**
