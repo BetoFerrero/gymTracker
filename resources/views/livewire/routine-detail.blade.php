@@ -24,9 +24,8 @@
                         <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                             Registrar entreno +
                         </button>
-                        <button class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                            Editar 
-                        </button>
+                        <livewire:routine-edit :routine="$routine" />
+
                     
                 @else
                     <!-- Invitado -->
@@ -47,17 +46,18 @@
                         @foreach ($routine->exercises as $exercise)
                             <li class="py-4 px-6 flex items-center">
                                 <div class="flex-shrink-0">
-                                    <img class="h-8 w-8 rounded-full" src="{{ asset('images/exercises/' . $exercise->ImageSrc) }}" alt="{{ $exercise->name }}">
+                                    <img class="sm:h-20 sm:w-20 lg:w-1/5 lg:h-1/5  rounded-full" src="{{ asset('images/exercises/' . $exercise->ImageSrc) }}" alt="{{ $exercise->name }}">
                                 </div>
                                 <div class="ml-4">
-                                    <h2 class="text-sm font-semibold text-gray-900">{{ $exercise->name }}</h2>
-                                    <p class="text-xs text-gray-500">{{ $exercise->description }}</p>
-                                </div>
-                                <div class="ml-auto">
-                                    <div class="text-sm font-medium text-gray-900">{{ $exercise->pivot->Order }}</div>
-                                    <div class="text-sm text-gray-500">{{ $exercise->pivot->Sets }}</div>
-                                    <div class="text-sm text-gray-500">{{ $exercise->pivot->Reps }}</div>
-                                    <div class="text-sm text-gray-500">{{ $exercise->pivot->rir }}</div>
+                                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white"> {{ $exercise->Name }}</h2>
+                                    <span class="ml-auto">
+                                        <svg fill="#666" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 416.979 416.979" xml:space="preserve"><g><path d="M356.004,61.156c-81.37-81.47-213.377-81.551-294.848-0.182c-81.47,81.371-81.552,213.379-0.181,294.85c81.369,81.47,213.378,81.551,294.849,0.181C437.293,274.636,437.375,142.626,356.004,61.156z M237.6,340.786c0,3.217-2.607,5.822-5.822,5.822h-46.576c-3.215,0-5.822-2.605-5.822-5.822V167.885c0-3.217,2.607-5.822,5.822-5.822h46.576c3.215,0,5.822,2.604,5.822,5.822V340.786z M208.49,137.901c-18.618,0-33.766-15.146-33.766-33.765c0-18.617,15.147-33.766,33.766-33.766c18.619,0,33.766,15.148,33.766,33.766C242.256,122.755,227.107,137.901,208.49,137.901z"/></g>
+                                   </svg></span>
+                                    <p class="text-xs text-gray-500">{{ $exercise->pivot->Description }}</p>
+                                    <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $exercise->pivot->Order }}º</div>
+                                    <div class="text-sm text-gray-500">Sets: {{ $exercise->pivot->sets }}</div>
+                                    <div class="text-sm text-gray-500">Reps: {{ $exercise->pivot->reps }}</div>
+                                    <div class="text-sm text-gray-500">Rir: {{ $exercise->pivot->rir }}</div>
                                 </div>
                             </li>
                         @endforeach

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+
 class routine_exercise extends Pivot
 {
     use HasUuids;
@@ -20,4 +21,6 @@ class routine_exercise extends Pivot
     //protected $primaryKey='id';
     protected $keytype='string';
     public $incrementing = false;
+
+
 }

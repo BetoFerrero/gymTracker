@@ -12,6 +12,13 @@ use Livewire\WithPagination;
 class RoutineDetail extends Component
 {
     public $routine;
+    public $editing = false;
+    public $newExerciseRoutine = [
+        'exercise_id' => null,
+        'sets' => null,
+        'reps' => null,
+        'rir' => null,
+    ];
 
     public function mount(Routine $routine)
     {
