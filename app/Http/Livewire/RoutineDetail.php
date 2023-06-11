@@ -11,51 +11,19 @@ use Livewire\WithPagination;
 
 class RoutineDetail extends Component
 {
-    use WithPagination;
-
     public $routine;
-    public $selectedExercise;
-    public $search;
 
-    protected $queryString = ['search'];
-
-    public function mount($routineId)
+    public function mount(Routine $routine)
     {
-        $this->routine = Routine::findOrFail($routineId);
-    }
-
-    public function createRoutineTable()
-    {
-        $this->validate([
-            'selectedExercise' => 'required',
-        ]);
-
-        Routine_exercise::create([
-            'routine_id' => $this->routine->id,
-            'exercise_id' => $this->selectedExercise,
-        ]);
-
-        // Restablecer la selección
-        $this->selectedExercise = null;
-
-        $this->emit('routineTableCreated');
+        $this->routine = $routine;
     }
 
     public function render()
     {
-        $exercises = Exercise::query()
-            ->when($this->search, function ($query, $search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            })
-            ->paginate(10);
+        $exercises = $this->routine->exercises()->orderBy('routine_exercise.uuid')->get();
 
-        $routineTables = $this->routine->routineTables()
-            ->with('exercise')
-            ->get();
-
-        return view('livewire.routine-show', [
+        return view('livewire.routine-detail', [
             'exercises' => $exercises,
-            'routineTables' => $routineTables,
         ]);
     }
 }

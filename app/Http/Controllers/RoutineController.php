@@ -72,4 +72,22 @@ class RoutineController extends Controller
     {
         //
     }
+
+    //Para actualizar el orden de los ejercicios
+    public function updateOrder(Request $request, Routine $routine)
+{
+    $exerciseData = $request->input('exercise_data');
+    $updatedData = [];
+
+    foreach ($exerciseData as $data) {
+        $routineExerciseId = $data['routine_exercise_id'];
+        $order = $data['order'];
+
+        $updatedData[$routineExerciseId] = ['Order' => $order];
+    }
+
+    $routine->exercises()->sync($updatedData);
+
+    // Resto del código de la actualización...
+}
 }

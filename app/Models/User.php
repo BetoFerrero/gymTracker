@@ -80,8 +80,9 @@ class User extends Authenticatable
         return $this->hasMany(record::class,'user_id','id');
     }
 
-    public function exercises(): HasManyThrough
+    public function exercisesRecorded(): HasManyThrough
     {
         return $this->hasManyThrough(exercise::class,record::class);
     }
+
 }

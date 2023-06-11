@@ -34,7 +34,7 @@ class RoutineList extends Component
         
         Routine::create([
             'name' => $this->newRoutineName,
-            'description' => 'Descripción de la nueva rutina',
+            'description' => '',
             'user_id' => $userId
         ]);
 
