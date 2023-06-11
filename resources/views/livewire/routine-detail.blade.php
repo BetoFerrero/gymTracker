@@ -8,14 +8,18 @@
                 @else
                 <p class="pb-4 font-normal text-gray-700 dark:text-gray-400">(Sin descripción)</p>
                 @endif
-                <div class="block max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:border-gray-700">
-                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Estadísticas:</h2>
+                <div class="flex-row">
+                <div class=" max-w-sm p-6 border border-gray-200 rounded-lg shadow bg-gray-100 dark:bg-gray-700 dark:border-gray-700">
+                <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    Estadísticas:</h2>
                 <ul class="font-normal text-gray-700 dark:text-gray-400">
                     <li>Total de ejercicios: {{ $routine->exercises->count() }}</li>
                     <li>Total de series: {{ $routine->exercises->sum('pivot.sets') }}</li>
                     <li>Total de repeticiones: {{ $routine->exercises->sum('pivot.reps') }}</li>
                 </ul>
                 </div>
+                {{--Aquí van las estadísticas del usuario--}}
+            </div>
             </div>
             <div class="py-4">
             @if ($routine->user_id == auth()->id() || auth()->user()->isAdmin())
@@ -42,23 +46,23 @@
                 @if ($routine->exercises->isEmpty())
                     <p class="text-gray-700 dark:text-gray-600">Rutina sin ejercicios</p>
                 @else
-                    <ul class="border border-gray-200 divide-y divide-gray-200">
+                    <ul class="">
                         @foreach ($routine->exercises as $exercise)
-                            <li class="py-4 px-6 flex items-center">
-                                <div class="flex-shrink-0">
-                                    <img class="sm:h-20 sm:w-20 lg:w-1/5 lg:h-1/5  rounded-full" src="{{ asset('images/exercises/' . $exercise->ImageSrc) }}" alt="{{ $exercise->name }}">
-                                </div>
-                                <div class="ml-4">
-                                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white"> {{ $exercise->Name }}</h2>
-                                    <span class="ml-auto">
-                                        <svg fill="#666" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px" viewBox="0 0 416.979 416.979" xml:space="preserve"><g><path d="M356.004,61.156c-81.37-81.47-213.377-81.551-294.848-0.182c-81.47,81.371-81.552,213.379-0.181,294.85c81.369,81.47,213.378,81.551,294.849,0.181C437.293,274.636,437.375,142.626,356.004,61.156z M237.6,340.786c0,3.217-2.607,5.822-5.822,5.822h-46.576c-3.215,0-5.822-2.605-5.822-5.822V167.885c0-3.217,2.607-5.822,5.822-5.822h46.576c3.215,0,5.822,2.604,5.822,5.822V340.786z M208.49,137.901c-18.618,0-33.766-15.146-33.766-33.765c0-18.617,15.147-33.766,33.766-33.766c18.619,0,33.766,15.148,33.766,33.766C242.256,122.755,227.107,137.901,208.49,137.901z"/></g>
-                                   </svg></span>
-                                    <p class="text-xs text-gray-500">{{ $exercise->pivot->Description }}</p>
-                                    <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $exercise->pivot->Order }}º</div>
-                                    <div class="text-sm text-gray-500">Sets: {{ $exercise->pivot->sets }}</div>
-                                    <div class="text-sm text-gray-500">Reps: {{ $exercise->pivot->reps }}</div>
-                                    <div class="text-sm text-gray-500">Rir: {{ $exercise->pivot->rir }}</div>
-                                </div>
+                            <li class="">
+                                <div class="flex flex-row items-center rounded-lg border border-gray-200 bg-gray-100 shadow dark:border-gray-700 dark:bg-gray-700 md:max-w-4xl">
+                                    <img class=" ml-4 flex-shrink-0 selection:pl-4 w-16 rounded-full object-cover md:w-32" src="{{ asset('images/exercises/' . $exercise->ImageSrc) }}" alt="{{ $exercise->name }}" />
+                                    <div class="flex flex-col justify-between px-4 pb-5 pt-1 leading-normal">
+                                      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">fondos de codo</h5>
+                                      <span class="right-0 top-0">{{ $exercise->pivot->Order }}º</span>
+                                      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ $exercise->pivot->Description }}</p>
+                                      <ul class="text-slate-900 dark:text-slate-300">
+                                        <li><span class="inline-block w-24 font-bold">Sets:</span> <span class="inline-block rounded bg-blue-200 p-1 w-10 text-center font-semibold text-gray-800">{{ $exercise->pivot->sets }}</span></li>
+                                        <li><span class="inline-block w-24 font-bold">Reps:</span> <span class="inline-block rounded bg-green-200 p-1 w-10 text-center font-semibold text-gray-800">{{ $exercise->pivot->reps }}</span></li>
+                                        <li><span class="inline-block w-24 font-bold">RIR máx:</span> <span class="inline-block rounded bg-red-200 p-1 w-10 text-center font-semibold text-gray-800">{{ $exercise->pivot->rir }}</span></li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  
                             </li>
                         @endforeach
                     </ul>
