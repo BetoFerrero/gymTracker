@@ -21,7 +21,7 @@ use App\Models\Routine;
 
 Route::get('/', function () {
 
-    //return view('welcome');
+    return view('welcome');
 }); 
 
 
@@ -41,7 +41,7 @@ Route::middleware([
     //Route::middleware('auth')->...
     Route::get('/exercise/{exercise}', [ExerciseController::class, 'show'])->name('exercise.show');
     Route::get('/routine/{routine}', [RoutineController::class, 'show'])->name('routine.show');
-    
+
 });
 
 

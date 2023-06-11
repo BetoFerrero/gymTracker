@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use app\models\routine_exercise;
 use Illuminate\Support\Str;
 class routine extends Model
 {
@@ -22,7 +23,7 @@ class routine extends Model
 
     public function exercises()
     {
-        return $this->belongsToMany(Exercise::class, 'exercise_routine');
+        return $this->belongsToMany(Exercise::class, 'routine_exercise');
     }
     protected $keytype='string';
     protected $primaryKey = 'id';

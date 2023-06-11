@@ -39,10 +39,14 @@ class RoutineController extends Controller
     public function show(Request $request,routine $routine)
     {
         // Verificar si la rutina pertenece al usuario autenticado
-    if ($routine->user_id !== $request->user()->id || !$routine->public) {
+
+    if ($routine->user_id == $request->user()->id || $routine->public){
+        return view('routine.show', ['routine' => $routine]);
+    }else{
         abort(403, 'No tienes permiso para acceder a esta rutina.');
     }
-    return view('routine.show', ['routine' => $routine]);
+    
+
     }
 
     /**

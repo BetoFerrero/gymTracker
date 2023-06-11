@@ -72,12 +72,12 @@ class User extends Authenticatable
 
     public function routines(): HasMany
     {
-        return $this->hasMany(routine::class,'user_uuid','uuid');
+        return $this->hasMany(routine::class,'user_id','id');
     }
 
     public function records(): HasMany
     {
-        return $this->hasMany(record::class,'user_uuid','uuid');
+        return $this->hasMany(record::class,'user_id','id');
     }
 
     public function exercises(): HasManyThrough
