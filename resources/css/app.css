@@ -5,3 +5,27 @@
 [x-cloak] {
     display: none;
 }
+
+
+img {
+    line-height: 0;
+    text-indent: -999em;
+}
+
+img::after {
+    content: '';
+    display: block;
+    background-color: white;
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1255/image-not-found.svg");
+    background-position: center;
+    background-size: cover;
+    padding: 50% 0; 
+    position: relative;
+}
+
+.comment-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }

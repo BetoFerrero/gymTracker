@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Routine;
 use App\Models\Record;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreRecordRequest;
 use App\Http\Requests\UpdateRecordRequest;
 
@@ -13,15 +14,17 @@ class RecordController extends Controller
      */
     public function index()
     {
-        //
+      return view('record.index');
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function createFrom(Request $request, $id)
     {
-        //
+        $routine = Routine::findOrFail($id);
+        $records = Record::where('routine_id', $id)->get();
+        return view('record.create', compact('routine', 'records'));
     }
 
     /**
@@ -29,7 +32,7 @@ class RecordController extends Controller
      */
     public function store(StoreRecordRequest $request)
     {
-        //
+        
     }
 
     /**
@@ -37,7 +40,7 @@ class RecordController extends Controller
      */
     public function show(Record $record)
     {
-        //
+        
     }
 
     /**

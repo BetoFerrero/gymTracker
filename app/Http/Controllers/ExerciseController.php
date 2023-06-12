@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\exercise;
 use App\Http\Requests\StoreexerciseRequest;
 use App\Http\Requests\UpdateexerciseRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ExerciseController extends Controller
 {
@@ -29,7 +30,11 @@ class ExerciseController extends Controller
      */
     public function store(StoreexerciseRequest $request)
     {
-        //
+        if (Auth::user()->isAdmin) {
+            Exercise::create($request->validated());
+        }
+        
+        return redirect()->route('exercise.index');
     }
 
     /**
@@ -37,7 +42,7 @@ class ExerciseController extends Controller
      */
     public function show(exercise $exercise)
     {
-        //
+        return view('exercise.show', compact('exercise'));
     }
 
     /**
@@ -53,7 +58,12 @@ class ExerciseController extends Controller
      */
     public function update(UpdateexerciseRequest $request, exercise $exercise)
     {
-        //
+        if (Auth::user()->isAdmin) {
+            $exercise->update($request->validated());
+        }
+        
+        return redirect()->route('exercise.show', $exercise);
+    
     }
 
     /**
@@ -61,6 +71,10 @@ class ExerciseController extends Controller
      */
     public function destroy(exercise $exercise)
     {
-        //
+        if (Auth::user()->isAdmin) {
+            $exercise->delete();
+        }
+        
+        return redirect()->route('exercise.index');
     }
 }

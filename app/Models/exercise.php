@@ -20,11 +20,12 @@ protected $fillable = [
     'Name',
     'Description',
     'equipment',
-    'target',
+    'target',//
     'bodyPart',
     'Tracking',
     'ImageSrc'
 ];
+//protected $guarded = [id];
 protected $primaryKey='id';
 protected $keytype='string';
 
@@ -35,6 +36,6 @@ public function record_exercise(): HasManyThrough
 {
  return $this->hasManyThrough(routine::class,record_exercise::class);
 }
-
+/** QUERIES */
 
 }

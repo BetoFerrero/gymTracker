@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\routine;
+use App\Models\Routine;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreroutineRequest;
 use App\Http\Requests\UpdateroutineRequest;
 
@@ -13,7 +14,7 @@ class RoutineController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -35,9 +36,17 @@ class RoutineController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(routine $routine)
+    public function show(Request $request,routine $routine)
     {
-        //
+        // Verificar si la rutina pertenece al usuario autenticado
+
+    if ($routine->user_id == $request->user()->id || $routine->public){
+        return view('routine.show', ['routine' => $routine]);
+    }else{
+        abort(403, 'No tienes permiso para acceder a esta rutina.');
+    }
+    
+
     }
 
     /**
@@ -63,4 +72,22 @@ class RoutineController extends Controller
     {
         //
     }
+
+    //Para actualizar el orden de los ejercicios
+    public function updateOrder(Request $request, Routine $routine)
+{
+    $exerciseData = $request->input('exercise_data');
+    $updatedData = [];
+
+    foreach ($exerciseData as $data) {
+        $routineExerciseId = $data['routine_exercise_id'];
+        $order = $data['order'];
+
+        $updatedData[$routineExerciseId] = ['Order' => $order];
+    }
+
+    $routine->exercises()->sync($updatedData);
+
+    // Resto del código de la actualización...
+}
 }

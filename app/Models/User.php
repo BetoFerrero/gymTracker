@@ -63,20 +63,31 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+
+    public function isAdmin(){
+        return $this->is_Admin; 
+    }
+
     /* === Relaciones === */
 
     public function routines(): HasMany
     {
-        return $this->hasMany(routine::class,'user_uuid','uuid');
+        return $this->hasMany(routine::class,'user_id','id');
     }
 
     public function records(): HasMany
     {
-        return $this->hasMany(record::class,'user_uuid','uuid');
+        return $this->hasMany(record::class,'user_id','id');
     }
 
-    public function exercises(): HasManyThrough
+    public function exercisesRecorded(): HasManyThrough
     {
         return $this->hasManyThrough(exercise::class,record::class);
     }
+    
+    public function trainedRoutines(): HasManyThrough
+    {
+        return $this->hasManyThrough(Routine::class, Record::class, 'user_id', 'id', 'id', 'routine_id');
+    }
+
 }

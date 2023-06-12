@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 dark:bg-gray-700 dark:border-white">
     <!-- Menú de navegación -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -17,6 +17,9 @@
                     </x-nav-link>
                     <x-nav-link href="{{ route('routines') }}" :active="request()->routeIs('routines')">
                         {{ __('Mis rutinas') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('records') }}" :active="request()->routeIs('records')">
+                        {{ __('Registros') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('exercises') }}" :active="request()->routeIs('exercises')">
                         {{ __('Ejercicios') }}
@@ -76,7 +79,6 @@
                         </x-dropdown>
                     </div>
                 @endif
-
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-dropdown align="right" width="48">
@@ -101,17 +103,30 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Cuenta') }}
                             </div>
 
                             <x-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                 <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                     {{ __('API Tokens') }}
                                 </x-dropdown-link>
+                            @endif
+                            
+                            @if (auth()->check())
+                                @if (auth()->user()->isAdmin())
+                                <div class="border-t border-gray-200"></div>
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    {{ __('Administrador') }}
+                                </div>
+                                
+                                <x-dropdown-link href="{{ route('profile.show') }}">
+                                    {{ __('Panel de usuarios') }}
+                                </x-dropdown-link>
+                                @endif
                             @endif
 
                             <div class="border-t border-gray-200"></div>
@@ -122,7 +137,7 @@
 
                                 <x-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Cerrar Sesión') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
@@ -150,6 +165,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('routines') }}" :active="request()->routeIs('routines')">
                 {{ __('Mis Rutinas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('records') }}" :active="request()->routeIs('records')">
+                {{ __('Registros') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('exercises') }}" :active="request()->routeIs('exercises')">
                 {{ __('Ejercicios') }}
