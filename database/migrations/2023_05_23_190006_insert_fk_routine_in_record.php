@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('Records', function (Blueprint $table) {
+        Schema::table('records', function (Blueprint $table) {
             $table->foreignUuid('routine_id')->constrained();
         });
     }
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('Records', function (Blueprint $table) {
+        Schema::table('records', function (Blueprint $table) {
             if (schema::hasColumn('routine_id')){
                 $table->dropColumn('routine_id');   
             };
