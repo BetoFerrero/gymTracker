@@ -22,3 +22,10 @@ img::after {
     padding: 50% 0; 
     position: relative;
 }
+
+.comment-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }

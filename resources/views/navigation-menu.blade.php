@@ -18,6 +18,9 @@
                     <x-nav-link href="{{ route('routines') }}" :active="request()->routeIs('routines')">
                         {{ __('Mis rutinas') }}
                     </x-nav-link>
+                    <x-nav-link href="{{ route('records') }}" :active="request()->routeIs('records')">
+                        {{ __('Registros') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('exercises') }}" :active="request()->routeIs('exercises')">
                         {{ __('Ejercicios') }}
                     </x-nav-link>
@@ -162,6 +165,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('routines') }}" :active="request()->routeIs('routines')">
                 {{ __('Mis Rutinas') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('records') }}" :active="request()->routeIs('records')">
+                {{ __('Registros') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('exercises') }}" :active="request()->routeIs('exercises')">
                 {{ __('Ejercicios') }}

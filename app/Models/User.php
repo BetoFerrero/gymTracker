@@ -84,5 +84,10 @@ class User extends Authenticatable
     {
         return $this->hasManyThrough(exercise::class,record::class);
     }
+    
+    public function trainedRoutines(): HasManyThrough
+    {
+        return $this->hasManyThrough(Routine::class, Record::class, 'user_id', 'id', 'id', 'routine_id');
+    }
 
 }

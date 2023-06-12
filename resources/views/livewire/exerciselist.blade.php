@@ -18,7 +18,7 @@
                 <button type="button" wire:click="searchByBodyPart('{{ $bodyPart }}')" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">{{ $bodyPart }}</button>
             </li>
             @endforeach
-            
+        </ul>
         </div>
         <div class="relative w-full">
             <input wire:model.debounce.300ms="search" type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="" required>
@@ -69,7 +69,7 @@
                         <td>{{$exercise->bodyPart}}</td>
                         
                         @if (auth()->user()->isAdmin())
-                        <td>Editar / Eliminar</td>
+                        <td class="w-1/12">Editar / Eliminar</td>
                     @endif
                     </tr>
                     
