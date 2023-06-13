@@ -52,6 +52,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="p-4 border border-gray-300 rounded-lg shadow">
+                    <div class="flex items-center">
+                        <div class="mr-4">
+                          <img src="ruta-a-tu-imagen.jpg" alt="Imagen de ejercicio" class="image-container">
+                        </div>
+                        <div>
                     <h3 class="text-lg font-semibold">{{ $exercise->Name }}</h3>
                     <p class="text-gray-600">{{ $exercise->bodyPart }}</p>
                     <p class="mt-2 text-sm text-gray-800">{{ $exercise->Description }}</p>
@@ -70,11 +75,13 @@
                             {{$exercise->Tracking}}
                         </span>
                         @endif
-                    </p>
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
     <!--
         <div>
             <p>Name: {{ $exercise->Name }}</p>
