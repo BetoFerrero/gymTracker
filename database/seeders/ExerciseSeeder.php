@@ -16,7 +16,7 @@ class ExerciseSeeder extends Seeder
      */
     public function run(): void
     {
-        $jsonFile = storage_path('seeds/ejercicios_traducido_sinUrl.json');
+        $jsonFile = storage_path('seeds\ejercicios_traducido_sinUrl.json');
         $data = file_get_contents($jsonFile);
         $exercises = json_decode($data, true);
 

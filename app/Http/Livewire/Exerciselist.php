@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Exercise;
+use App\Models\user;
 use Livewire\WithPagination;
 use external\libraries\image;
 use Illuminate\Support\Facades\Auth;
@@ -63,6 +64,22 @@ class Exerciselist extends Component
     public function checkImg($imgUrl,$failImgUrl){
         return image::checkimage($imgUrl,$failImgUrl);
     }
-    
-    
+
+    /**
+     * Elimina ejercicios
+     */
+    public function deleteExercise($exerciseId)
+{
+    if (auth()->user()->isAdmin()) {
+        // Lógica para eliminar el ejercicio según su ID ($exerciseId)
+        $exercise = Exercise::find($exerciseId);
+
+        if ($exercise) {
+            $exercise->delete();
+        }
+
+        // Vuelve a cargar la lista de ejercicios
+        return redirect()->route('exercise.index');
+    }
+}
 }
