@@ -81,21 +81,21 @@
               <div>
           </div>
         </section>
-      
+      <!--+1200 ejercicios-->
         <section data-scroll-section class="horizontalScrolling pt-32 pb-32 bg-gray-600" >
           <div class="section-inner">
       
           <div class="flex space-x-1 bg-gray-600" data-scroll-in-section>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0213.gif"/>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0233.gif"/>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0805.gif"/>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0010.gif"/>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0864.gif"/>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0009.gif"/>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0650.gif"/>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0023.gif"/>
-            <img class="item object-cover rounded-lg mt-8" src="http://d205bpvrqc9yn1.cloudfront.net/0155.gif"/>
-            <img class="item object-cover rounded-lg mb-8" src="http://d205bpvrqc9yn1.cloudfront.net/0286.gif"/>
+            <img class="item object-cover rounded-lg mt-8" src="{{asset('images/exercises/' .'0213.gif')}}"/>
+            <img class="item object-cover rounded-lg mb-8" src="{{asset('images/exercises/' .'0233.gif')}}"/>
+            <img class="item object-cover rounded-lg mt-8" src="{{asset('images/exercises/' .'0805.gif')}}"/>
+            <img class="item object-cover rounded-lg mb-8" src="{{asset('images/exercises/' .'0010.gif')}}"/>
+            <img class="item object-cover rounded-lg mt-8" src="{{asset('images/exercises/' .'0864.gif')}}"/>
+            <img class="item object-cover rounded-lg mb-8" src="{{asset('images/exercises/' .'0009.gif')}}"/>
+            <img class="item object-cover rounded-lg mt-8" src="{{asset('images/exercises/' .'0650.gif')}}"/>
+            <img class="item object-cover rounded-lg mb-8" src="{{asset('images/exercises/' .'0023.gif')}}"/>
+            <img class="item object-cover rounded-lg mt-8" src="{{asset('images/exercises/' .'0155.gif')}}"/>
+            <img class="item object-cover rounded-lg mb-8" src="{{asset('images/exercises/' .'0286.gif')}}"/>
           </div>
       
             <!--Texto encima-->
@@ -108,6 +108,6 @@
             </div>
       </div>
         </section>
-      
+
       </div>
 </x-web-layout>
