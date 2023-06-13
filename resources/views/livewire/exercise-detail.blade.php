@@ -5,47 +5,47 @@
     </div>
 
     @if ($editing)
-        <form wire:submit.prevent="save">
-            <div>
-                <label for="name">Name</label>
-                <input type="text" wire:model="exercise.Name" name="name">
-                @error('Name') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <label for="bodyPart">Body Part</label>
-                <input type="text" wire:model="exercise.bodyPart" name="bodyPart">
-                @error('bodyPart') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <label for="description">Description</label>
-                <textarea wire:model="exercise.Description" name="description"></textarea>
-                @error('Description') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <label for="equipment">Equipment</label>
-                <input type="text" wire:model="exercise.equipment"  name="equipment">
-                @error('equipment') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <label for="target">Target</label>
-                <input type="text" wire:model="exercise.target" name="target">
-                @error('target') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <label for="tracking">Tracking</label>
-                <input type="text" wire:model="exercise.tracking" name="tracking">
-                @error('tracking') <span class="text-red-500">{{ $message }}</span> @enderror
-            </div>
-
-            <div>
-                <button type="submit">Save</button>
-            </div>
-        </form>
+    <form wire:submit.prevent="save">
+        <div class="dark:bg-gray-800">
+            <label for="name" class="dark:text-white">Name</label>
+            <input type="text" wire:model="exercise.Name" name="name" class="dark:bg-gray-700">
+            @error('Name') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+    
+        <div class="dark:bg-gray-800">
+            <label for="bodyPart" class="dark:text-white">Body Part</label>
+            <input type="text" wire:model="exercise.bodyPart" name="bodyPart" class="dark:bg-gray-700">
+            @error('bodyPart') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+    
+        <div class="dark:bg-gray-800">
+            <label for="description" class="dark:text-white">Description</label>
+            <textarea wire:model="exercise.Description" name="description" class="dark:bg-gray-700"></textarea>
+            @error('Description') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+    
+        <div class="dark:bg-gray-800">
+            <label for="equipment" class="dark:text-white">Equipment</label>
+            <input type="text" wire:model="exercise.equipment" name="equipment" class="dark:bg-gray-700">
+            @error('equipment') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+    
+        <div class="dark:bg-gray-800">
+            <label for="target" class="dark:text-white">Target</label>
+            <input type="text" wire:model="exercise.target" name="target" class="dark:bg-gray-700">
+            @error('target') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+    
+        <div class="dark:bg-gray-800">
+            <label for="tracking" class="dark:text-white">Tracking</label>
+            <input type="text" wire:model="exercise.tracking" name="tracking" class="dark:bg-gray-700">
+            @error('tracking') <span class="text-red-500">{{ $message }}</span> @enderror
+        </div>
+    
+        <div>
+            <button type="submit">Save</button>
+        </div>
+    </form>
     @else
     
     <div class="py-12">

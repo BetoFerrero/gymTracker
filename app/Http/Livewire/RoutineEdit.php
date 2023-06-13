@@ -78,4 +78,11 @@ class RoutineEdit extends Component
             'exercises' => $this->exercises,
         ]);
     }
+
+    public function rules()
+{
+    return [
+        'routine.Name' => 'required|string|max:255', // Agrega las reglas de validación que desees
+    ];
+}
 }
